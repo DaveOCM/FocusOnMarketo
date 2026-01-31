@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 3: Creating Assets - Marketo Study Guide</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Section 3: Creating Assets</h1>
+        <p>30% of Exam (Largest Section) | Focus: Forms, Emails, Landing Pages, Dynamic Content</p>
+    </div>
+
+    <!-- PROGRESS BAR (sticky) -->
+    <div class="progress-wrap">
+        <span class="progress-label">Progress</span>
+        <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+        <span class="progress-count" id="progCount">0%</span>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h2>📖 Section Objectives</h2>
+            <p>By the end of this section, you will be able to:</p>
+            <ul>
+                <li>✅ Understand asset types (local vs global, draft vs approved)</li>
+                <li>✅ Create and modify forms using the Form Editor</li>
+                <li>✅ Understand form features (visibility rules, progressive profiling, pre-fill, CAPTCHA)</li>
+                <li>✅ Create and edit emails using the Email Editor</li>
+                <li>✅ Understand email types (operational vs marketing)</li>
+                <li>✅ Create and edit landing pages using the Landing Page Editor</li>
+                <li>✅ Create and use snippets effectively</li>
+                <li>✅ Master Dynamic Content with Segmentations</li>
+                <li>✅ Understand nurturing assets (engagement programs)</li>
+                <li>✅ Upload and manage images and files in Design Studio</li>
+            </ul>
+
+            <h2>Asset Types Overview</h2>
+            
+            <p><a href="https://experienceleaguecommunities.adobe.com/adobe-marketo-engage-27/local-vs-global-assets-in-marketo-147569" target="_blank">📚 Official Documentation: Local vs Global Assets →</a></p>
+
+            <h3>Local vs Global Assets</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Local Assets</th>
+                        <th>Global Assets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Aspect"><strong>Location</strong></td>
+                        <td data-label="Local Assets">Created within a program in Marketing Activities</td>
+                        <td data-label="Global Assets">Created in Design Studio</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspect"><strong>Availability</strong></td>
+                        <td data-label="Local Assets">Only available to that specific program</td>
+                        <td data-label="Global Assets">Available to ALL programs</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspect"><strong>Use Case</strong></td>
+                        <td data-label="Local Assets">Program-specific assets</td>
+                        <td data-label="Global Assets">Reusable across programs</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspect"><strong>Examples</strong></td>
+                        <td data-label="Local Assets">Event-specific landing page, one-time email</td>
+                        <td data-label="Global Assets">Company logo, preference center, global footer</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Use LOCAL when:</strong> Asset is specific to one program/campaign and won't be reused</p>
+            <p><strong>Use GLOBAL when:</strong> Asset will be reused across multiple programs with centralized control</p>
+
+            <h3>Draft vs Approved Assets</h3>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/approve-unapprove-or-delete-a-landing-page" target="_blank">📚 Official Documentation: Approving Assets →</a></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Asset Status</th>
+                        <th>Can Use in Campaign?</th>
+                        <th>URL Live?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Asset Status"><strong>Draft</strong></td>
+                        <td data-label="Can Use in Campaign?">❌ No</td>
+                        <td data-label="URL Live?">❌ No</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Asset Status"><strong>Approved</strong></td>
+                        <td data-label="Can Use in Campaign?">✅ Yes</td>
+                        <td data-label="URL Live?">✅ Yes</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Asset Status"><strong>Approved with Draft</strong></td>
+                        <td data-label="Can Use in Campaign?">✅ Yes (uses approved version)</td>
+                        <td data-label="URL Live?">✅ Yes (shows approved version)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>Key Rule:</strong> Draft assets CANNOT be used. You must approve an asset before it can be used in campaigns or go live.
+            </div>
+
+            <h2>Forms</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/creating-a-form/create-a-form" target="_blank">📚 Official Documentation: Creating Forms →</a></p>
+
+            <h3>Form Pre-Fill</h3>
+            <p>Automatically populates form fields with known visitor data (First Name, Email, etc.)</p>
+            
+            <div class="alert alert-danger">
+                <strong>Security Restriction:</strong> Form Pre-Fill ONLY works on Marketo landing pages with known visitors. It does NOT work on external websites for security reasons.
+            </div>
+
+            <h3>Progressive Profiling</h3>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/form-actions/configure-form-progressive-profiling" target="_blank">📚 Official Documentation: Progressive Profiling →</a></p>
+            
+            <p>Shows different questions to returning visitors to gradually collect more information over multiple form fills.</p>
+            <p><strong>Example:</strong> First visit asks Name/Email. Second visit asks Company/Title. Third visit asks Phone/Country.</p>
+
+            <h3>Visibility Rules</h3>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/forms/form-fields/dynamically-toggle-visibility-of-a-form-field" target="_blank">📚 Official Documentation: Visibility Rules →</a></p>
+            
+            <p>Show/hide form fields dynamically based on answers to previous questions.</p>
+            <p><strong>Example:</strong> If Country = "United States", show State dropdown. Otherwise, hide it.</p>
+
+            <h3>Global Form Validation Rules</h3>
+            <p>Set at Admin level to block specific email domains from ALL forms.</p>
+            <p><strong>Example:</strong> Block free email providers like gmail.com, yahoo.com for B2B lead gen.</p>
+
+            <h3>Form CAPTCHA</h3>
+            <p>Marketo uses score-based behavioral analysis (not visual puzzles) to detect bots.</p>
+
+            <h2>Emails</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/creating-an-email/create-an-email" target="_blank">📚 Official Documentation: Creating Emails →</a></p>
+
+            <h3>Marketing vs Operational Emails</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Marketing Emails</th>
+                        <th>Operational Emails</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Aspect"><strong>Respects Unsubscribed?</strong></td>
+                        <td data-label="Marketing Emails">✅ Yes - won't send</td>
+                        <td data-label="Operational Emails">❌ No - will send anyway</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspect"><strong>Respects Marketing Suspended?</strong></td>
+                        <td data-label="Marketing Emails">✅ Yes - won't send</td>
+                        <td data-label="Operational Emails">❌ No - will send anyway</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspect"><strong>Communication Limits?</strong></td>
+                        <td data-label="Marketing Emails">✅ Yes - respects limits</td>
+                        <td data-label="Operational Emails">❌ No - bypasses limits</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Aspect"><strong>Use Cases</strong></td>
+                        <td data-label="Marketing Emails">Newsletters, promotions, nurture</td>
+                        <td data-label="Operational Emails">Order confirmations, password resets, shipping notifications</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>Important:</strong> Operational emails should ONLY be used for transactional messages that people need regardless of their subscription status.
+            </div>
+
+            <h3>Text Only vs HTML Emails</h3>
+            <ul>
+                <li><strong>HTML Emails:</strong> Can track opens (via image pixel) and clicks</li>
+                <li><strong>Text Only Emails:</strong> Cannot track opens (no image pixel), but can track clicks</li>
+            </ul>
+
+            <h3>Email Preheader</h3>
+            <p>Summary text that appears after subject line in inbox preview (40-100 characters optimal).</p>
+
+            <h2>Landing Pages</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages" target="_blank">📚 Official Documentation: Landing Pages →</a></p>
+
+            <h3>Free-Form vs Guided Landing Pages</h3>
+            <ul>
+                <li><strong>Free-Form:</strong> Drag-and-drop flexibility. You can place elements anywhere on the page.</li>
+                <li><strong>Guided:</strong> Template-controlled structure. Developer creates template with defined regions; marketer fills in content.</li>
+            </ul>
+
+            <h3>Key Concepts</h3>
+            <ul>
+                <li><strong>URL Activation:</strong> Landing page URL becomes active when the page is <strong>Approved</strong>. Before approval, URL returns 404 error.</li>
+                <li><strong>Forms:</strong> Can add Marketo forms to landing pages. Forms must be Approved before adding to page.</li>
+                <li><strong>Tokens:</strong> Can use tokens in landing page content for personalization (same as emails).</li>
+                <li><strong>Dynamic Content:</strong> Can use Segmentations to show different content per segment (same as emails).</li>
+                <li><strong>Templates:</strong> Landing pages are based on templates (either Marketo's starter templates or custom templates).</li>
+            </ul>
+
+            <h3>Pre-Fill on Landing Pages</h3>
+            <p>Form Pre-Fill works on Marketo landing pages with known visitors. The form automatically populates with known data (Name, Email, etc.) to reduce friction.</p>
+
+            <h2>Snippets</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/personalization/segmentation-and-snippets/snippets/create-a-snippet" target="_blank">📚 Official Documentation: Snippets →</a></p>
+            
+            <p>Reusable content blocks that can be used in emails and landing pages.</p>
+            
+            <p><strong>Key Benefit:</strong> Update once → changes everywhere the snippet is used (once approved).</p>
+            
+            <p><strong>Example Use Cases:</strong></p>
+            <ul>
+                <li>Email footer with social links and unsubscribe</li>
+                <li>Company disclaimer text</li>
+                <li>Event details that appear in multiple emails</li>
+            </ul>
+
+            <h2>Dynamic Content</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/personalization/segmentation-and-snippets/segmentation/understanding-dynamic-content" target="_blank">📚 Official Documentation: Dynamic Content →</a></p>
+
+            <h3>What is Dynamic Content?</h3>
+            <p>Content that changes based on the viewer's segment membership. Different people see different content in the same email/landing page.</p>
+
+            <h3>Requirements</h3>
+            <ol>
+                <li>Create a <strong>Segmentation</strong> (Database → New Segmentation)</li>
+                <li>Approve the Segmentation</li>
+                <li>Use Segmentation in email/landing page/snippet</li>
+            </ol>
+
+            <div class="alert alert-info">
+                <strong>Remember:</strong> Segmentations are mutually exclusive - a person can be in only ONE segment. First matching segment wins (top-to-bottom evaluation).
+            </div>
+
+            <h3>What Can Be Dynamic?</h3>
+            <ul>
+                <li>✅ Text modules in emails</li>
+                <li>✅ Images in emails</li>
+                <li>✅ Snippets (entire content blocks)</li>
+                <li>✅ Landing page content</li>
+                <li>❌ Forms (use Visibility Rules instead)</li>
+            </ul>
+
+            <h3>Default Segment</h3>
+            <p>Every segmentation must have a Default segment that catches everyone who doesn't match specific segments.</p>
+
+            <div class="alert alert-danger">
+                <strong>Critical QA Step:</strong> Always preview by EVERY segment before sending to ensure all variations are correct!
+            </div>
+
+            <h2>Best Practices</h2>
+            <ul>
+                <li>✅ Always approve assets before using them in campaigns</li>
+                <li>✅ Use global assets for reusable content (footers, preference centers)</li>
+                <li>✅ Use local assets for program-specific content</li>
+                <li>✅ Test forms on Marketo landing pages (not external sites) for pre-fill</li>
+                <li>✅ Use Operational emails only for transactional messages</li>
+                <li>✅ Preview all segments when using dynamic content</li>
+                <li>✅ Keep preheader text between 40-100 characters</li>
+                <li>✅ Use snippets for content that appears in multiple places</li>
+                <li>✅ Use progressive profiling to reduce form length for returning visitors</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>✏️ Section 3 Practice Quiz</h2>
+            <p><strong>32 Questions</strong> | Test your knowledge of Creating Assets</p>
+            <p style="margin-bottom: 2rem;">Select your answers and click "Submit Quiz" to see results.</p>
+
+            <div id="quiz"></div>
+
+            <div class="quiz-score" id="quizScore"></div>
+
+            <div class="quiz-actions">
+                <button class="btn btn-primary" onclick="submitQuiz()">Submit Quiz</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()" style="display: none;" id="resetBtn">Reset Quiz</button>
+            </div>
+        </div>
+    </div>
+
+<script src="section3_data.js"></script>
+<script src="quiz.js"></script>
+</body>
+</html>
