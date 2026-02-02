@@ -31,14 +31,24 @@ body {
 .header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
-    padding: 2rem;
+    padding: 0.75rem 1.5rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-.header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; text-align: center; }
-.header p { opacity: 0.9; text-align: center; }
+.header h1 { 
+    font-size: 1.1rem; 
+    margin-bottom: 0.15rem; 
+    text-align: center; 
+    font-weight: 600;
+}
+.header p { 
+    opacity: 0.9; 
+    text-align: center; 
+    font-size: 0.75rem;
+    margin: 0;
+}
 
 /* LAYOUT */
 .container { max-width: 1000px; margin: 2rem auto; padding: 0 2rem; }
@@ -233,7 +243,9 @@ tr:hover { background: var(--bg-secondary); }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-    .header h1 { font-size: 1.4rem; }
+    .header { padding: 1rem; }
+    .header h1 { font-size: 1.1rem; }
+    .header p { font-size: 0.8rem; }
     .content, .quiz-section { padding: 1.5rem; }
     .intro { padding: 1.5rem; }
     .container { padding: 0 1rem; }
@@ -271,47 +283,43 @@ tr:hover { background: var(--bg-secondary); }
 }
 
 /* ============================================================
-   PROGRESS BAR — sticky, sits below the header
+   PROGRESS BAR — inside header, moves with header
    ============================================================ */
 .progress-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 0.55rem 1.5rem;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 .progress-label {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.85);
     white-space: nowrap;
 }
 .progress-track {
     flex: 1;
-    height: 6px;
-    background: var(--bg-secondary);
-    border-radius: 3px;
+    height: 4px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 2px;
     overflow: hidden;
 }
 .progress-fill {
     height: 100%;
     width: 0%;
-    background: #E34850;
-    border-radius: 3px;
+    background: white;
+    border-radius: 2px;
     transition: width 0.4s ease, background 0.4s ease;
 }
 .progress-count {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text);
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: white;
     white-space: nowrap;
-    min-width: 42px;
+    min-width: 32px;
     text-align: right;
 }
 

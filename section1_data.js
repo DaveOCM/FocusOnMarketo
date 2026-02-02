@@ -100,7 +100,7 @@ const questions = [
                 explanation: "My Tokens use double curly braces with 'my' prefix: {{my.tokenName}}. This is critical to remember! Single braces {}, double brackets [[]], and dollar signs ${} are all incorrect syntax."
             },
             {
-                q: "You have a token {{my.region}} set to 'EMEA' at the folder level and 'AMER' at the program level. An email in that program will display:",
+                q: "You have a token {{my.region}} set to 'EMEA' at the folder level and 'AMER' at the program level. What will an email in that program display?",
                 options: [
                     "EMEA (folder level)",
                     "AMER (program level)",
@@ -122,7 +122,7 @@ const questions = [
                 explanation: "{{system.dateYear}} is a system token that automatically displays the current year. It updates automatically each year without any manual changes needed. System tokens are pre-defined by Marketo and always available."
             },
             {
-                q: "To avoid showing {{lead.First Name}} when the field is empty, you should use:",
+                q: "To avoid showing {{lead.First Name}} when the field is empty, which syntax should you use?",
                 options: [
                     "{{lead.First Name=Dear Valued Customer}}",
                     "{{lead.First Name:default=Dear Valued Customer}}",
@@ -157,7 +157,7 @@ const questions = [
                 explanation: "Engagement Program streams can ONLY contain: (1) Emails and (2) Default Programs (nested programs for complex logic like A/B testing or conditional sends). Email Programs, Event Programs, other Engagement Programs, Landing Pages, and Forms CANNOT be added to streams."
             },
             {
-                q: "Communication limits are set to 1 email per day. A person receives Marketing Email A at 9 AM. At 11 AM, Smart Campaign tries to send Marketing Email B. Email B is:",
+                q: "Communication limits are set to 1 email per day. A person receives Marketing Email A at 9 AM. At 11 AM, a Smart Campaign tries to send Marketing Email B. What happens to Email B?",
                 options: [
                     "Blocked (limit reached)",
                     "Sent (different campaign)",

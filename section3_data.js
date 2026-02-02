@@ -44,7 +44,7 @@ const questions = [
                 explanation: "Form Pre-Fill ONLY works on Marketo landing pages with known visitors (cookie-based). It does NOT work on external websites for security reasons - Marketo can't expose person data to third-party sites. This is heavily tested!"
             },
             {
-                q: "Progressive Profiling is used to:",
+                q: "What is Progressive Profiling used for?",
                 options: [
                     "Make forms load faster",
                     "Show different questions to returning visitors to gradually collect more data",
@@ -66,7 +66,7 @@ const questions = [
                 explanation: "Visibility Rules dynamically show or hide fields based on previous answers. Example: If Country = 'United States', show State dropdown; otherwise hide it. This is different from Progressive Profiling which shows different questions on repeat visits."
             },
             {
-                q: "Global Form Validation Rules are used to:",
+                q: "What are Global Form Validation Rules used for?",
                 options: [
                     "Make fields required",
                     "Block specific email domains from all forms globally",
@@ -77,7 +77,7 @@ const questions = [
                 explanation: "Global Form Validation Rules are set at the Admin level to block specific email domains (like gmail.com, yahoo.com) from ALL forms in your instance. This is useful for B2B companies that only want corporate email addresses."
             },
             {
-                q: "Key difference between Marketing and Operational emails:",
+                q: "What is the key difference between Marketing and Operational emails?",
                 options: [
                     "Marketing emails are cheaper to send",
                     "Operational emails bypass Unsubscribed and Marketing Suspended status",
@@ -121,7 +121,7 @@ const questions = [
                 explanation: "Preheader (or preview text) is the summary text that appears after the subject line in the inbox preview. Optimal length is 40-100 characters. It's a chance to provide additional context beyond the subject line to increase open rates."
             },
             {
-                q: "Primary benefit of Snippets:",
+                q: "What is the primary benefit of Snippets?",
                 options: [
                     "Faster email sends",
                     "Update once and changes appear everywhere the snippet is used",
@@ -199,7 +199,7 @@ const questions = [
                 explanation: "Forms CANNOT use Segmentation-based dynamic content. To show/hide form fields dynamically, use Visibility Rules (based on answers to previous questions on the same form). This is a common exam question!"
             },
             {
-                q: "Critical QA step before sending an email with dynamic content:",
+                q: "What is the critical QA step before sending an email with dynamic content?",
                 options: [
                     "Send test to yourself",
                     "Preview by Segment for ALL segments to verify each variation",
@@ -233,7 +233,7 @@ const questions = [
                 explanation: "Global form changes apply immediately to all landing pages using that form (once the form is approved). This is both powerful (easy to update) and dangerous (can break things if not tested). Always test global asset changes carefully!"
             },
             {
-                q: "Marketo's CAPTCHA is:",
+                q: "What is Marketo's CAPTCHA?",
                 options: [
                     "A visual puzzle users must solve",
                     "Score-based behavioral analysis to detect bots",
@@ -255,7 +255,7 @@ const questions = [
                 explanation: "Operational emails are designed to bypass subscription status for critical transactional messages. When 'Operational' is enabled, the email will send to people even if they're Unsubscribed or Marketing Suspended. Use responsibly - only for transactional content!"
             },
             {
-                q: "Email preheader best practice length:",
+                q: "What is the best practice length for email preheaders?",
                 options: [
                     "10-20 characters",
                     "40-100 characters",
@@ -266,7 +266,7 @@ const questions = [
                 explanation: "40-100 characters is optimal for preheader text. This length displays well in most email clients' inbox previews without getting cut off. Too short wastes opportunity; too long gets truncated."
             },
             {
-                q: "Text Only emails are best for:",
+                q: "What are Text Only emails best for?",
                 options: [
                     "All audiences always",
                     "Highly technical/developer audiences who prefer plain text",
@@ -277,7 +277,7 @@ const questions = [
                 explanation: "Text Only emails are typically used for technical audiences (developers, IT pros) who prefer plain text. Most audiences prefer HTML emails with formatting and images. Text Only can't track opens and has limited formatting."
             },
             {
-                q: "CC Address field in email can use:",
+                q: "What can the CC Address field in email use?",
                 options: [
                     "Only static email addresses",
                     "Tokens like {{lead.Lead Owner Email Address}}",
@@ -299,7 +299,7 @@ const questions = [
                 explanation: "Creating a draft of the snippet doesn't change the live approved version that's being used in the 20 emails. Only when you approve the draft do the changes go live in all places using the snippet. This allows safe editing without breaking live content."
             },
             {
-                q: "Dynamic Content requires Segmentation because:",
+                q: "Why does Dynamic Content require Segmentation?",
                 options: [
                     "It's faster than Smart Lists",
                     "Segmentations provide mutually exclusive groups needed for content variations",
@@ -321,7 +321,7 @@ const questions = [
                 explanation: "If someone in AMER segment sees Default content, it means the dynamic content module doesn't have AMER segment content set up. You must configure content for EACH segment you want to show custom content to. If a segment isn't configured, those people see the Default."
             },
             {
-                q: "Landing page URL becomes active when:",
+                q: "When does a Landing page URL become active?",
                 options: [
                     "Page is created",
                     "Page is approved",

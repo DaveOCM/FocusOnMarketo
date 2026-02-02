@@ -143,7 +143,7 @@ const questions = [
                 explanation: "The person has 500 employees. First, check Enterprise (>1000): NO. Second, check Mid-Market (>100): YES - 500 is greater than 100. First match wins, so they're assigned to Mid-Market. Evaluation stops there - they won't be checked against Default."
             },
             {
-                q: "Segmentations are primarily used for:",
+                q: "What are Segmentations primarily used for?",
                 options: [
                     "Dynamic Content in emails and landing pages",
                     "Filtering Smart Campaign Smart Lists",
@@ -187,7 +187,7 @@ const questions = [
                 explanation: "To edit an approved Segmentation, you must: (1) Unapprove it, (2) Make your changes, (3) Re-approve it. While unapproved, any dynamic content using that segmentation will show the Default segment to everyone. This process ensures changes are intentional and controlled."
             },
             {
-                q: "Segmentation 'Industry' has: Healthcare, Technology, Finance, Default. Order matters because:",
+                q: "Segmentation 'Industry' has: Healthcare, Technology, Finance, Default. Why does order matter?",
                 options: [
                     "It doesn't matter - assignment is random",
                     "First matching segment wins (top-to-bottom evaluation)",
@@ -198,7 +198,7 @@ const questions = [
                 explanation: "Segmentations evaluate top-to-bottom and assign the FIRST matching segment. Once a match is found, evaluation stops. This is why you should order segments from most specific to least specific, with Default always last as the catch-all."
             },
             {
-                q: "'Email Suspended' status means:",
+                q: "What does 'Email Suspended' status mean?",
                 options: [
                     "Person unsubscribed",
                     "Email temporarily suspended, usually due to soft or hard bounces",
@@ -209,7 +209,7 @@ const questions = [
                 explanation: "Email Suspended is typically set automatically by Marketo after email bounces (soft or hard). It's a temporary status that may be cleared if the email becomes valid again. This is different from Email Invalid (permanent invalid address) or Marketing Suspended (marketer control)."
             },
             {
-                q: "Difference between 'Unsubscribed' and 'Blocklisted':",
+                q: "What is the difference between 'Unsubscribed' and 'Blocklisted'?",
                 options: [
                     "No difference - they're the same",
                     "Unsubscribed can receive operational emails; Blocklisted receives nothing",
@@ -220,7 +220,7 @@ const questions = [
                 explanation: "Unsubscribed people can still receive Operational emails (password resets, order confirmations, etc.). Blocklisted people receive NO emails at all - it's the most restrictive status. Blocklisted is typically used for complainers, legal issues, or people who should never receive any communication."
             },
             {
-                q: "During import, Email Address field is:",
+                q: "During import, what is the Email Address field's requirement status?",
                 options: [
                     "Optional",
                     "Required for matching existing records",
