@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe Marketo Engage - Study Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- TOP NAVIGATION (always visible) -->
+<div class="top-nav">
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🎓 Adobe Marketo Engage Digital Marketer Professional</h1>
+        <p>Complete Certification Study Guide · Exam AD0-E564</p>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+        <ul class="tab-list">
+            <li class="tab"><button class="tab-button active" onclick="openTab(event, 'home')">🏠 Home</button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'section1')">📘 Sec 1 <span style="opacity:0.6">(20%)</span><span class="tab-badge" id="tabBadge-section1">✓</span></button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'section2')">📘 Sec 2 <span style="opacity:0.6">(20%)</span><span class="tab-badge" id="tabBadge-section2">✓</span></button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'section3')">📘 Sec 3 <span style="opacity:0.6">(30%)</span><span class="tab-badge" id="tabBadge-section3">✓</span></button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'section4')">📘 Sec 4 <span style="opacity:0.6">(15%)</span><span class="tab-badge" id="tabBadge-section4">✓</span></button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'section5')">📘 Sec 5 <span style="opacity:0.6">(15%)</span><span class="tab-badge" id="tabBadge-section5">✓</span></button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'mockA')">📝 Mock A</button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'mockB')">📝 Mock B</button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'mockC')">📝 Mock C</button></li>
+            <li class="tab"><button class="tab-button" onclick="openTab(event, 'mockD')">🔥 Mock D</button></li>
+        </ul>
+    </div>
+</div>
+
+<!-- HOME -->
+<div id="home" class="tab-content active">
+    <div class="home-content">
+        <div class="home-header">
+            <h2>📖 Your Study Dashboard</h2>
+            <p>5 study sections · 4 mock exams · 400 practice questions total</p>
+        </div>
+
+        <!-- EXAM INFO -->
+        <div class="info-box">
+            <div>
+                <h4>📋 Exam Details</h4>
+                <ul>
+                    <li><strong>Exam Code:</strong> AD0-E564</li>
+                    <li><strong>Level:</strong> Professional (0–12 months)</li>
+                    <li><strong>Duration:</strong> 140 minutes</li>
+                    <li><strong>Questions:</strong> 70</li>
+                    <li><strong>Passing:</strong> 49/70 (70%)</li>
+                    <li><strong>Cost:</strong> $125 USD</li>
+                    <li><strong>Delivery:</strong> Online proctored</li>
+                </ul>
+            </div>
+            <div>
+                <h4>🎯 Study Tips</h4>
+                <ul>
+                    <li>Complete all 5 sections before taking mock exams</li>
+                    <li>Aim for 70%+ on each section quiz first</li>
+                    <li>Read every explanation — even on correct answers</li>
+                    <li>Mock D is intentionally harder — don't worry if score is lower</li>
+                    <li>Focus weak areas by re-reading relevant sections</li>
+                    <li>3–6 months hands-on Marketo experience helps a lot</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number" id="globalPct">0%</div>
+                <div class="label">Overall Progress</div>
+                <div class="global-progress-wrap">
+                    <div class="global-progress-steps">
+                        <div class="global-progress-step" id="step-section1-scroll"></div>
+                        <div class="global-progress-step" id="step-section1-quiz"></div>
+                        <div class="global-progress-step" id="step-section2-scroll"></div>
+                        <div class="global-progress-step" id="step-section2-quiz"></div>
+                        <div class="global-progress-step" id="step-section3-scroll"></div>
+                        <div class="global-progress-step" id="step-section3-quiz"></div>
+                        <div class="global-progress-step" id="step-section4-scroll"></div>
+                        <div class="global-progress-step" id="step-section4-quiz"></div>
+                        <div class="global-progress-step" id="step-section5-scroll"></div>
+                        <div class="global-progress-step" id="step-section5-quiz"></div>
+                    </div>
+                    <div class="global-progress-labels">
+                        <span>Sec 1</span>
+                        <span>Sec 2</span>
+                        <span>Sec 3</span>
+                        <span>Sec 4</span>
+                        <span>Sec 5</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="number">400</div>
+                <div class="label">Practice Questions</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">4</div>
+                <div class="label">Mock Exams</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">70%</div>
+                <div class="label">Passing Score</div>
+            </div>
+        </div>
+
+        <!-- STUDY SECTIONS -->
+        <div class="section-label">📘 Study Sections — Learn the material</div>
+        <div class="cards-grid">
+            <div class="card" onclick="openTab(null, 'section1')">
+                <div class="card-header study">Section 1<span class="card-badge" id="cardBadge-section1">✓ Passed</span></div>
+                <div class="card-body">
+                    <h3>Building Programs</h3>
+                    <div class="card-meta">20% of exam · 25 questions</div>
+                    <span class="tag tag-blue">Program Types</span>
+                    <span class="tag tag-blue">Tokens</span>
+                    <span class="tag tag-blue">Channels</span>
+                    <div class="card-progress">
+                        <div class="card-progress-dot" id="cardDot-section1-scroll"></div>
+                        <span class="card-progress-dot-label">Read</span>
+                        <div class="card-progress-dot" id="cardDot-section1-quiz"></div>
+                        <span class="card-progress-dot-label">Quiz</span>
+                    </div>
+                </div>
+                <div class="card-arrow">Open →</div>
+            </div>
+            <div class="card" onclick="openTab(null, 'section2')">
+                <div class="card-header study">Section 2<span class="card-badge" id="cardBadge-section2">✓ Passed</span></div>
+                <div class="card-body">
+                    <h3>Targeting Audiences</h3>
+                    <div class="card-meta">20% of exam · 23 questions</div>
+                    <span class="tag tag-blue">Smart Lists</span>
+                    <span class="tag tag-blue">Segmentations</span>
+                    <span class="tag tag-blue">Imports</span>
+                    <div class="card-progress">
+                        <div class="card-progress-dot" id="cardDot-section2-scroll"></div>
+                        <span class="card-progress-dot-label">Read</span>
+                        <div class="card-progress-dot" id="cardDot-section2-quiz"></div>
+                        <span class="card-progress-dot-label">Quiz</span>
+                    </div>
+                </div>
+                <div class="card-arrow">Open →</div>
+            </div>
+            <div class="card" onclick="openTab(null, 'section3')">
+                <div class="card-header study">Section 3<span class="card-badge" id="cardBadge-section3">✓ Passed</span></div>
+                <div class="card-body">
+                    <h3>Creating Assets</h3>
+                    <div class="card-meta">30% of exam · 32 questions</div>
+                    <span class="tag tag-blue">Forms</span>
+                    <span class="tag tag-blue">Emails</span>
+                    <span class="tag tag-blue">Dynamic Content</span>
+                    <div class="card-progress">
+                        <div class="card-progress-dot" id="cardDot-section3-scroll"></div>
+                        <span class="card-progress-dot-label">Read</span>
+                        <div class="card-progress-dot" id="cardDot-section3-quiz"></div>
+                        <span class="card-progress-dot-label">Quiz</span>
+                    </div>
+                </div>
+                <div class="card-arrow">Open →</div>
+            </div>
+            <div class="card" onclick="openTab(null, 'section4')">
+                <div class="card-header study">Section 4<span class="card-badge" id="cardBadge-section4">✓ Passed</span></div>
+                <div class="card-body">
+                    <h3>Automating Programs</h3>
+                    <div class="card-meta">15% of exam · 20 questions</div>
+                    <span class="tag tag-blue">Smart Campaigns</span>
+                    <span class="tag tag-blue">Flow Steps</span>
+                    <span class="tag tag-blue">Wait Steps</span>
+                    <div class="card-progress">
+                        <div class="card-progress-dot" id="cardDot-section4-scroll"></div>
+                        <span class="card-progress-dot-label">Read</span>
+                        <div class="card-progress-dot" id="cardDot-section4-quiz"></div>
+                        <span class="card-progress-dot-label">Quiz</span>
+                    </div>
+                </div>
+                <div class="card-arrow">Open →</div>
+            </div>
+            <div class="card" onclick="openTab(null, 'section5')">
+                <div class="card-header study">Section 5<span class="card-badge" id="cardBadge-section5">✓ Passed</span></div>
+                <div class="card-body">
+                    <h3>Analyzing Reports</h3>
+                    <div class="card-meta">15% of exam · 20 questions</div>
+                    <span class="tag tag-blue">Reports</span>
+                    <span class="tag tag-blue">Metrics</span>
+                    <span class="tag tag-blue">ROI</span>
+                    <div class="card-progress">
+                        <div class="card-progress-dot" id="cardDot-section5-scroll"></div>
+                        <span class="card-progress-dot-label">Read</span>
+                        <div class="card-progress-dot" id="cardDot-section5-quiz"></div>
+                        <span class="card-progress-dot-label">Quiz</span>
+                    </div>
+                </div>
+                <div class="card-arrow">Open →</div>
+            </div>
+        </div>
+
+        <!-- MOCK EXAMS -->
+        <div class="section-label">📝 Mock Exams — Test your knowledge</div>
+        <div class="cards-grid">
+            <div class="card" onclick="openTab(null, 'mockA')">
+                <div class="card-header mock">Mock Exam</div>
+                <div class="card-body">
+                    <h3>Mock Exam A</h3>
+                    <div class="card-meta">70 questions · Full exam format</div>
+                    <span class="tag tag-green">70 Questions</span>
+                    <span class="tag tag-purple">Explanations</span>
+                </div>
+                <div class="card-arrow">Start Exam →</div>
+            </div>
+            <div class="card" onclick="openTab(null, 'mockB')">
+                <div class="card-header mock">Mock Exam</div>
+                <div class="card-body">
+                    <h3>Mock Exam B</h3>
+                    <div class="card-meta">70 questions · Full exam format</div>
+                    <span class="tag tag-green">70 Questions</span>
+                    <span class="tag tag-purple">Explanations</span>
+                </div>
+                <div class="card-arrow">Start Exam →</div>
+            </div>
+            <div class="card" onclick="openTab(null, 'mockC')">
+                <div class="card-header mock">Mock Exam</div>
+                <div class="card-body">
+                    <h3>Mock Exam C</h3>
+                    <div class="card-meta">70 questions · Full exam format</div>
+                    <span class="tag tag-green">70 Questions</span>
+                    <span class="tag tag-purple">Explanations</span>
+                </div>
+                <div class="card-arrow">Start Exam →</div>
+            </div>
+            <div class="card" onclick="openTab(null, 'mockD')">
+                <div class="card-header hard">Hard Mode</div>
+                <div class="card-body">
+                    <h3>Mock Exam D</h3>
+                    <div class="card-meta">70 questions · Edge cases & tricky scenarios</div>
+                    <span class="tag tag-green">70 Questions</span>
+                    <span class="tag tag-red">Hard Mode</span>
+                </div>
+                <div class="card-arrow">Start Exam →</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- STUDY SECTION IFRAMES -->
+<div id="section1" class="tab-content"><iframe src="section1.html"></iframe></div>
+<div id="section2" class="tab-content"><iframe src="section2.html"></iframe></div>
+<div id="section3" class="tab-content"><iframe src="section3.html"></iframe></div>
+<div id="section4" class="tab-content"><iframe src="section4.html"></iframe></div>
+<div id="section5" class="tab-content"><iframe src="section5.html"></iframe></div>
+
+<!-- MOCK EXAM IFRAMES -->
+<div id="mockA" class="tab-content"><iframe src="mock_exam_a.html"></iframe></div>
+<div id="mockB" class="tab-content"><iframe src="mock_exam_b.html"></iframe></div>
+<div id="mockC" class="tab-content"><iframe src="mock_exam_c.html"></iframe></div>
+<div id="mockD" class="tab-content"><iframe src="mock_exam_d.html"></iframe></div>
+
+<script>
+// ─── TAB NAVIGATION ──────────────────────────────────────
+function openTab(evt, tabName) {
+    Array.from(document.getElementsByClassName('tab-content')).forEach(function(tc) { tc.classList.remove('active'); });
+    Array.from(document.getElementsByClassName('tab-button')).forEach(function(btn) { btn.classList.remove('active'); });
+    document.getElementById(tabName).classList.add('active');
+
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
+    } else {
+        document.querySelectorAll('.tab-button').forEach(function(btn) {
+            if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabName)) {
+                btn.classList.add('active');
+            }
+        });
+    }
+    window.scrollTo(0, 0);
+}
+
+// ─── PROGRESS SYSTEM ─────────────────────────────────────
+var sections = ['section1','section2','section3','section4','section5'];
+
+// Apply a single section's state to the UI
+function applyState(key, scrolled, quizPassed) {
+    // Global progress steps
+    var stepScroll = document.getElementById('step-' + key + '-scroll');
+    var stepQuiz  = document.getElementById('step-' + key + '-quiz');
+    if (stepScroll) stepScroll.className = 'global-progress-step' + (scrolled ? ' done' : '');
+    if (stepQuiz)  stepQuiz.className  = 'global-progress-step' + (quizPassed ? ' done' : '');
+
+    // Card dots
+    var dotScroll = document.getElementById('cardDot-' + key + '-scroll');
+    var dotQuiz  = document.getElementById('cardDot-' + key + '-quiz');
+    if (dotScroll) dotScroll.className = 'card-progress-dot' + (scrolled ? ' done' : '');
+    if (dotQuiz)  dotQuiz.className  = 'card-progress-dot' + (quizPassed ? ' done' : '');
+
+    // Card badge + tab badge — only if quiz passed
+    var cardBadge = document.getElementById('cardBadge-' + key);
+    var tabBadge  = document.getElementById('tabBadge-' + key);
+    if (cardBadge) cardBadge.className = 'card-badge' + (quizPassed ? ' show' : '');
+    if (tabBadge)  tabBadge.className  = 'tab-badge'  + (quizPassed ? ' show' : '');
+
+    // Recalculate global percentage
+    updateGlobalPct();
+}
+
+function updateGlobalPct() {
+    var done = 0;
+    sections.forEach(function(key) {
+        if (localStorage.getItem('marketo_' + key + '_scrolled') === 'true') done++;
+        if (localStorage.getItem('marketo_' + key + '_quiz') === 'true') done++;
+    });
+    var pct = Math.round((done / 10) * 100);
+    document.getElementById('globalPct').textContent = pct + '%';
+}
+
+// Listen for postMessage from iframes (real-time updates)
+window.addEventListener('message', function(event) {
+    if (!event.data || event.data.type !== 'sectionProgress') return;
+    var key = event.data.key;
+    if (sections.indexOf(key) === -1) return;
+    applyState(key, event.data.scrolled, event.data.quizPassed);
+});
+
+// On load: read localStorage and restore full UI state
+sections.forEach(function(key) {
+    var scrolled   = localStorage.getItem('marketo_' + key + '_scrolled') === 'true';
+    var quizPassed = localStorage.getItem('marketo_' + key + '_quiz') === 'true';
+    applyState(key, scrolled, quizPassed);
+});
+</script>
+</body>
+</html>

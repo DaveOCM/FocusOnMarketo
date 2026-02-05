@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 5: Analyzing Reports - Marketo Study Guide</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Section 5: Analyzing Reports</h1>
+        <p>15% of Exam | Focus: Email Performance, Program Performance, Metrics</p>
+        
+        <!-- PROGRESS BAR -->
+        <div class="progress-wrap">
+            <span class="progress-label">Progress</span>
+            <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+            <span class="progress-count" id="progCount">0%</span>
+        </div>
+    </div>
+        
+    
+    <!-- RESET BUTTON -->
+    <div class="container" style="margin-top: 1rem; margin-bottom: 0;">
+        <button class="btn btn-secondary" onclick="resetSectionProgress()" style="float: right; padding: 0.5rem 1rem; font-size: 0.85rem;">🔄 Reset Progress</button>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h2>📖 Section Objectives</h2>
+            <ul>
+                <li>✅ Understand different report types and when to use each</li>
+                <li>✅ Create and customize reports</li>
+                <li>✅ Interpret report metrics correctly</li>
+                <li>✅ Understand Report Subscriptions and Smart List Subscriptions</li>
+                <li>✅ Know which reports support channels/tags filtering</li>
+                <li>✅ Understand Email Performance metrics and formulas</li>
+                <li>✅ Interpret Program Performance reports</li>
+                <li>✅ Use Campaign Activity reports</li>
+            </ul>
+
+            <h2>Report Types Overview</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-types/report-type-overview" target="_blank">📚 Official Documentation: Report Types →</a></p>
+
+            <p><strong>Email Reports:</strong></p>
+            <ul>
+                <li>Email Performance - How individual emails perform</li>
+                <li>Email Link Performance - Which links get clicked</li>
+                <li>Campaign Email Performance - Emails grouped by campaign</li>
+            </ul>
+
+            <p><strong>Program Reports:</strong></p>
+            <ul>
+                <li>Program Performance - Program metrics, ROI, costs (supports Channel/Tag filtering)</li>
+                <li>Campaign Activity - Smart campaign processing stats</li>
+            </ul>
+
+            <p><strong>People Reports:</strong></p>
+            <ul>
+                <li>People Performance - Database growth over time</li>
+                <li>People by Status - People grouped by status values</li>
+            </ul>
+
+            <p><strong>Other:</strong></p>
+            <ul>
+                <li>Landing Page Performance</li>
+                <li>Web Page Activity</li>
+                <li>Engagement Stream Performance</li>
+            </ul>
+
+            <h2>Email Performance Report</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-data/email-performance-report" target="_blank">📚 Official Documentation: Email Performance →</a></p>
+
+            <h3>Key Metrics</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Metric"><strong>Sent</strong></td>
+                        <td data-label="Definition">Total emails sent (delivered + bounced)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Delivered</strong></td>
+                        <td data-label="Definition">Successfully delivered to inbox</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Bounced</strong></td>
+                        <td data-label="Definition">Failed delivery (hard + soft bounces)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Opened</strong></td>
+                        <td data-label="Definition">Recipient opened email (downloaded images)</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Clicked</strong></td>
+                        <td data-label="Definition">Recipient clicked a link</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Unsubscribed</strong></td>
+                        <td data-label="Definition">Recipient unsubscribed via this email</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Email Metric Formulas</h3>
+            
+            <div class="alert alert-warning">
+                <strong>Important Formulas:</strong><br>
+                <code>Open Rate = (Opens ÷ Delivered) × 100%</code><br>
+                <code>Click Rate = (Clicks ÷ Delivered) × 100%</code><br>
+                <code>Click-to-Open Rate = (Clicks ÷ Opens) × 100%</code><br><br>
+                <strong>Note:</strong> Use DELIVERED (not Sent) as denominator. Sent includes bounces which can't open/click.
+            </div>
+
+            <p><strong>Click-to-Open Rate vs Click Rate:</strong></p>
+            <ul>
+                <li><strong>Click-to-Open Rate:</strong> Of people who opened, how many clicked? Measures content effectiveness.</li>
+                <li><strong>Click Rate:</strong> Of people delivered, how many clicked? Measures overall campaign effectiveness.</li>
+            </ul>
+
+            <h2>Program Performance Report</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/program-performance-report/create-a-program-performance-report" target="_blank">📚 Official Documentation: Program Performance →</a></p>
+
+            <div class="alert alert-info">
+                <strong>Key Feature:</strong> Program Performance Report SUPPORTS filtering by Channels and Custom Tags. This is unique to this report!
+            </div>
+
+            <h3>Key Metrics</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Metric"><strong>Total Members</strong></td>
+                        <td data-label="Definition">All people in program</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>New Names</strong></td>
+                        <td data-label="Definition">New people acquired by this program</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Success</strong></td>
+                        <td data-label="Definition">People who achieved program success</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Total Cost</strong></td>
+                        <td data-label="Definition">Sum of all period costs</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Metric"><strong>Cost per Success</strong></td>
+                        <td data-label="Definition">Total Cost ÷ Success</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>ROI Calculation</h3>
+            <pre>ROI = [(Revenue - Cost) ÷ Cost] × 100%
+
+Example:
+Revenue: $100,000
+Cost: $20,000
+ROI = [($100,000 - $20,000) ÷ $20,000] × 100%
+ROI = 400%</pre>
+
+            <h2>Campaign Activity Report</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-types/campaign-activity-report" target="_blank">📚 Official Documentation: Campaign Activity Report →</a></p>
+            
+            <p>Shows smart campaign processing activity and health.</p>
+
+            <p><strong>Key Metrics:</strong></p>
+            <ul>
+                <li><strong>Batch Run Count:</strong> Number of times campaign ran</li>
+                <li><strong>Total People Processed:</strong> People who went through flow</li>
+                <li><strong>People in Wait Step:</strong> Currently in wait steps</li>
+                <li><strong>Removed from Flow:</strong> People removed before completion</li>
+            </ul>
+
+            <p><strong>Use Cases:</strong></p>
+            <ul>
+                <li>Monitor campaign health</li>
+                <li>Identify campaigns with people stuck in wait</li>
+                <li>Find inactive trigger campaigns</li>
+                <li>Troubleshoot processing issues</li>
+            </ul>
+
+            <h2>Report Subscriptions</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-subscriptions/subscribe-to-a-basic-report" target="_blank">📚 Official Documentation: Report Subscriptions →</a></p>
+
+            <p>Schedule reports to be emailed automatically on a recurring basis.</p>
+
+            <p><strong>Options:</strong></p>
+            <ul>
+                <li>Daily, Weekly, Monthly, or Quarterly frequency</li>
+                <li>Choose recipients</li>
+                <li>Select report format (Excel, CSV, PDF)</li>
+            </ul>
+
+            <h2>Smart List Subscriptions</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/basic-reporting/report-subscriptions/subscribe-to-a-smart-list" target="_blank">📚 Official Documentation: Smart List Subscriptions →</a></p>
+
+            <p>Email a list of people who qualify for a Smart List on a recurring schedule.</p>
+
+            <p><strong>Difference from Report Subscriptions:</strong></p>
+            <ul>
+                <li><strong>Report Subscription:</strong> Sends aggregated metrics/summary data</li>
+                <li><strong>Smart List Subscription:</strong> Sends list of actual people with their field values</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>Important:</strong> Smart List Subscriptions send a list of PEOPLE (like an Excel export). Report Subscriptions send METRICS about performance.
+            </div>
+
+            <h2>Best Practices</h2>
+            <ul>
+                <li>✅ Use Delivered (not Sent) for rate calculations</li>
+                <li>✅ Filter Program Performance by Channel/Tags for better insights</li>
+                <li>✅ Monitor Campaign Activity for people stuck in Wait steps</li>
+                <li>✅ Use Report Subscriptions for recurring reports to stakeholders</li>
+                <li>✅ Use Smart List Subscriptions to track specific audience segments over time</li>
+                <li>✅ Track Cost per Success to measure program efficiency</li>
+                <li>✅ Compare Click-to-Open Rate across emails to optimize content</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>✏️ Section 5 Practice Quiz</h2>
+            <p><strong>20 Questions</strong> | Test your knowledge of Analyzing Reports</p>
+            <p style="margin-bottom: 2rem;">Select your answers and click "Submit Quiz" to see results.</p>
+
+            <div id="quiz"></div>
+            <div class="quiz-score" id="quizScore"></div>
+            <div class="quiz-actions">
+                <button class="btn btn-primary" onclick="submitQuiz()">Submit Quiz</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()" style="display: none;" id="resetBtn">Reset Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    
+<script src="js/section5_data.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>

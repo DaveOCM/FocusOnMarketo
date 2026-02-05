@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 1: Building Programs - Marketo Study Guide</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Section 1: Building and Managing Programs</h1>
+        <p>20% of Exam | Focus: Program Types, Channels, Tags, Period Costs, TOKENS</p>
+        
+        <!-- PROGRESS BAR -->
+        <div class="progress-wrap">
+            <span class="progress-label">Progress</span>
+            <div class="progress-track"><div class="progress-fill" id="progFill"></div></div>
+            <span class="progress-count" id="progCount">0%</span>
+        </div>
+    </div>
+        
+    
+    <!-- RESET BUTTON -->
+    <div class="container" style="margin-top: 1rem; margin-bottom: 0;">
+        <button class="btn btn-secondary" onclick="resetSectionProgress()" style="float: right; padding: 0.5rem 1rem; font-size: 0.85rem;">🔄 Reset Progress</button>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+
+            <h2>📖 Section Objectives</h2>
+            <p>By the end of this section, you will be able to:</p>
+            <ul>
+                <li>✅ Identify the 4 Marketo program types and know when to use each</li>
+                <li>✅ Recognize special features of each program type</li>
+                <li>✅ Understand what can be cloned</li>
+                <li>✅ Identify the purpose and benefits of channels and custom tags</li>
+                <li>✅ Describe the importance of period costs</li>
+                <li>✅ Master token types and usage</li>
+                <li>✅ Understand communication limits</li>
+                <li>✅ Recognize program membership and acquisition</li>
+            </ul>
+
+            <h2>The 4 Program Types</h2>
+            <p><strong>A program</strong> represents a single marketing initiative. It's a container with all the assets you need to make the program work.</p>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/understanding-programs" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Understanding Programs →</a></p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Program Type</th>
+                        <th>When to Use</th>
+                        <th>Special Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Program Type"><strong>📅 Event Program</strong></td>
+                        <td data-label="When to Use">Webinars, in-person events, conferences - anything with attendees at a specific date/time</td>
+                        <td data-label="Special Features">Webinar integration (Zoom, ON24, etc.), iPad check-in, event cap, waitlist</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Program Type"><strong>✉️ Email Program</strong></td>
+                        <td data-label="When to Use">One-time email sends (newsletters, announcements, promotions)</td>
+                        <td data-label="Special Features">A/B testing, Recipient Time Zone, Head Start</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Program Type"><strong>🔄 Engagement Program</strong></td>
+                        <td data-label="When to Use">Drip nurture campaigns over time (onboarding, lead nurture)</td>
+                        <td data-label="Special Features">Streams, casts, cadence, exhaustion tracking, transition rules</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Program Type"><strong>📋 Default Program</strong></td>
+                        <td data-label="When to Use">Everything else (general campaigns, operational programs)</td>
+                        <td data-label="Special Features">Most flexible, no special features, can contain any asset</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Email Program Features</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/creating-an-email-program/understanding-email-programs" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Email Programs →</a></p>
+            
+            <h3>A/B Testing</h3>
+            <p>Email Programs support A/B testing for:</p>
+            <ul>
+                <li><strong>Subject Line</strong> (most common)</li>
+                <li><strong>Whole Email</strong> (two completely different emails)</li>
+                <li><strong>From Address</strong></li>
+                <li><strong>Date/Time</strong></li>
+            </ul>
+            
+            <div class="alert alert-info">
+                <strong>Winner Criteria:</strong><br>
+                • Open Rate<br>
+                • Click Rate<br>
+                • Click-to-Open Rate<br>
+                • Engagement Score (recommended minimum 24-hour test period)<br>
+                • Custom Conversion (based on specific URL visits)
+            </div>
+
+            <h3>Recipient Time Zone</h3>
+            <p>Delivers email at each recipient's local time (e.g., everyone gets it at 9 AM their time).</p>
+            <p><strong>⏰ Requirement:</strong> Must approve program at least <strong>25 hours</strong> before scheduled send.</p>
+
+            <h3>Head Start</h3>
+            <p>Processes email send 12 hours early to improve deliverability for large sends.</p>
+            <p><strong>⏰ Requirement:</strong> Must approve program at least <strong>12 hours</strong> before scheduled send.</p>
+            <p><strong>⚠️ Important:</strong> Cannot use Head Start with A/B testing OR with Recipient Time Zone!</p>
+
+            <h3>Feature Compatibility</h3>
+            <p><strong>Cannot be combined:</strong></p>
+            <ul>
+                <li>❌ Head Start + A/B Testing</li>
+                <li>❌ Head Start + Recipient Time Zone</li>
+            </ul>
+            <p><strong>Can be combined:</strong></p>
+            <ul>
+                <li>✅ A/B Testing + Recipient Time Zone</li>
+            </ul>
+
+            <h2>Engagement Program Concepts</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/creating-an-engagement-program/understanding-engagement-programs" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Engagement Programs →</a></p>
+            
+            <h3>Streams</h3>
+            <p>Containers for content within an Engagement Program. A person can be in <strong>ONE stream at a time</strong>.</p>
+            <p><strong>Content types allowed in streams:</strong></p>
+            <ul>
+                <li>✅ <strong>Emails</strong></li>
+                <li>✅ <strong>Default Programs</strong> (nested programs for complex logic)</li>
+                <li>❌ Email Programs (not allowed)</li>
+                <li>❌ Event Programs (not allowed)</li>
+                <li>❌ Other Engagement Programs (not allowed)</li>
+            </ul>
+
+            <h3>Casts</h3>
+            <p>When Marketo sends content from the Engagement Program. You set the cast schedule (e.g., "Every Tuesday at 10 AM").</p>
+
+            <h3>Cadence</h3>
+            <p>Person-level setting:</p>
+            <ul>
+                <li><strong>Normal:</strong> Person receives content at next cast</li>
+                <li><strong>Paused:</strong> Person does NOT receive content (even if they're a member)</li>
+            </ul>
+
+            <h3>Exhausted</h3>
+            <p>Status when a person has received <strong>all available content</strong> in their current stream.</p>
+
+            <h2>🎯 Tokens</h2>
+
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Tokens Overview →</a></p>
+
+            <h3>1. System Tokens</h3>
+            <p>Pre-defined by Marketo, always available.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><code>{{system.dateYear}}</code> - Current year (e.g., 2025)</li>
+                <li><code>{{system.date}}</code> - Current date</li>
+                <li><code>{{system.time}}</code> - Current time</li>
+                <li><code>{{system.unsubscribeLink}}</code> - Unsubscribe link</li>
+                <li><code>{{system.viewAsWebpageLink}}</code> - "View as Web Page" link</li>
+            </ul>
+
+            <h3>2. Lead Tokens</h3>
+            <p>Pull data from person record fields.</p>
+            <p><strong>Syntax:</strong> <code>{{lead.FieldName}}</code></p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><code>{{lead.First Name}}</code></li>
+                <li><code>{{lead.Email Address}}</code></li>
+                <li><code>{{lead.Company}}</code></li>
+                <li><code>{{lead.Lead Score}}</code></li>
+            </ul>
+            
+            <div class="alert alert-info">
+                <strong>Default Values:</strong><br>
+                Always use default values to avoid displaying empty tokens:<br>
+                <code>{{lead.First Name:default=Friend}}</code><br>
+                <code>{{lead.Company:default=your company}}</code>
+            </div>
+
+            <h3>3. Company Tokens</h3>
+            <p>Pull data from the company/account object (when synced with CRM).</p>
+            <p><strong>Syntax:</strong> <code>{{company.FieldName}}</code></p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><code>{{company.Company Name}}</code></li>
+                <li><code>{{company.Annual Revenue}}</code></li>
+                <li><code>{{company.Industry}}</code></li>
+            </ul>
+
+            <h3>4. My Tokens</h3>
+            <p><strong>Custom tokens YOU create</strong> at the Program or Folder level.</p>
+            <p><strong>Syntax:</strong> <code>{{my.tokenName}}</code></p>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: My Tokens →</a></p>
+            
+            <h4>My Token Types:</h4>
+            <ul>
+                <li><strong>Text:</strong> Plain text (e.g., event name, product name)</li>
+                <li><strong>Number:</strong> Numeric values</li>
+                <li><strong>Date:</strong> Date values</li>
+                <li><strong>Rich Text:</strong> Formatted HTML content</li>
+                <li><strong>Score:</strong> Numeric score values</li>
+                <li><strong>Salesforce Campaign:</strong> Link to SFDC campaign</li>
+            </ul>
+
+            <h4>Token Inheritance</h4>
+            <p>More specific tokens override less specific ones:</p>
+            <pre>Folder: {{my.region}} = "EMEA"
+Program: {{my.region}} = "AMER"
+
+Email in that program displays: <strong>AMER</strong> (program level wins)</pre>
+
+            <h4>Where Can Tokens Be Used?</h4>
+            <ul>
+                <li>✅ Email subject lines</li>
+                <li>✅ Email body content</li>
+                <li>✅ Landing page content</li>
+                <li>✅ Snippets</li>
+                <li>✅ Some flow step values</li>
+                <li>❌ <strong>NOT in Smart List filters/triggers</strong></li>
+            </ul>
+
+            <h2>Channels and Tags</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/tags/create-a-program-channel" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Program Channels →</a></p>
+            
+            <h3>Channels</h3>
+            <p>Categorize program types for reporting and organization.</p>
+            <p><strong>Examples:</strong> Webinar, Email Blast, Tradeshow, Content Syndication, Online Advertising</p>
+            <p>Each channel has defined <strong>statuses</strong> that track progression (e.g., Invited → Registered → Attended).</p>
+
+            <h3>Custom Tags</h3>
+            <p>Additional categorization attributes you define.</p>
+            <p><strong>Examples:</strong></p>
+            <ul>
+                <li><strong>Region:</strong> AMER, EMEA, APAC</li>
+                <li><strong>Product Line:</strong> Product A, Product B, Product C</li>
+                <li><strong>Target Audience:</strong> Enterprise, SMB, Startup</li>
+            </ul>
+            <p><strong>⚠️ Important:</strong> One program can have <strong>one value per tag type</strong> (e.g., one Region AND one Product, but not multiple Regions).</p>
+
+            <h3>Where Channels/Tags Are Used</h3>
+            <ul>
+                <li>✅ <strong>Program Performance Report</strong> (can filter by channel/tags)</li>
+                <li>✅ <strong>Program Analyzer</strong> (if enabled)</li>
+                <li>❌ Email Performance, Landing Page Performance, other asset-level reports</li>
+            </ul>
+
+            <h2>Period Costs</h2>
+            <p>Track <strong>direct program costs</strong> to enable ROI calculation. Period Costs are entered in the program's <strong>Setup tab</strong>.</p>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/using-period-costs-in-a-program" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Period Costs →</a></p>
+            <p><a href="https://experienceleaguecommunities.adobe.com/adobe-marketo-engage-27/why-you-need-period-costs-for-reporting-161211" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Adobe Experience League: Period Costs →</a></p>
+            
+            <h3>What to Include:</h3>
+            <ul>
+                <li>✅ Event venue rental</li>
+                <li>✅ Pay-per-click advertising</li>
+                <li>✅ Content production costs</li>
+                <li>✅ Vendor fees specific to the program</li>
+            </ul>
+
+            <h3>What NOT to Include:</h3>
+            <ul>
+                <li>❌ Marketo subscription (overhead)</li>
+                <li>❌ Full-time employee salaries (overhead)</li>
+                <li>❌ Office rent (overhead)</li>
+            </ul>
+
+            <h3>ROI Calculation</h3>
+            <pre>ROI = (Revenue - Cost) ÷ Cost × 100%
+
+Example:
+Revenue: $50,000
+Period Cost: $10,000
+ROI = ($50,000 - $10,000) ÷ $10,000 × 100%
+ROI = $40,000 ÷ $10,000 × 100% = 400%</pre>
+
+            <h2>Communication Limits</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/enable-communication-limits" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Communication Limits →</a></p>
+            
+            <p>Set at the Admin level to prevent email fatigue.</p>
+            <p><strong>Example:</strong> Limit to 1 email per day or 3 emails per week.</p>
+            
+            <div class="alert alert-info">
+                <strong>Important:</strong><br>
+                • Communication limits apply to <strong>marketing emails only</strong><br>
+                • <strong>Operational emails</strong> bypass communication limits<br>
+                • Marketo blocks emails that exceed limits (doesn't queue them)
+            </div>
+
+            <h2>Program Membership vs. Acquisition</h2>
+            
+            <p><a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/reporting/revenue-cycle-analytics/revenue-tools/attribution/understanding-attribution" target="_blank" style="color: var(--primary); font-weight: 600;">📚 Official Documentation: Attribution (Membership & Acquisition) →</a></p>
+            
+            <h3>Program Membership</h3>
+            <p>When a person becomes associated with a program through:</p>
+            <ul>
+                <li>Filling out a form</li>
+                <li>Smart campaign flow step ("Change Program Status")</li>
+                <li>List import</li>
+                <li>API</li>
+            </ul>
+
+            <h3>Program Acquisition</h3>
+            <p><strong>The FIRST program that brought a NEW person into your database.</strong></p>
+            <p>Acquisition program <strong>never changes</strong> - it's always the first program.</p>
+            <p><strong>Used for:</strong> Attribution reporting, understanding lead sources.</p>
+        </div>
+
+        <div class="quiz-section">
+            <h2>✏️ Section 1 Practice Quiz</h2>
+            <p><strong>25 Questions</strong> | Test your knowledge of Building Programs and Tokens</p>
+            <p style="margin-bottom: 2rem;">Select your answers and click "Submit Quiz" to see results.</p>
+
+            <div id="quiz"></div>
+
+            <div class="quiz-score" id="quizScore"></div>
+
+            <div class="quiz-actions">
+                <button class="btn btn-primary" onclick="submitQuiz()">Submit Quiz</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()" style="display: none;" id="resetBtn">Reset Quiz</button>
+            </div>
+        </div>
+    </div>
+
+<script src="js/section1_data.js"></script>
+<script src="js/quiz.js"></script>
+</body>
+</html>
