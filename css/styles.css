@@ -1,1 +1,704 @@
-Styles here
+/* ============================================================
+   MARKETO CERTIFICATION STUDY GUIDE — Consolidated Stylesheet
+   Used by: index.html, section1-5.html, mock_exam_a-d.html
+   
+   Contains styles for:
+   - Shared CSS variables (colors, fonts)
+   - Index page (tabs, cards, navigation)
+   - Section pages (content, quizzes)
+   - Mock exams
+   ============================================================ */
+
+:root {
+    /* Primary - Teal Petróleo */
+    --primary: #1D586B;
+    --primary-dark: #164555;
+    --primary-light: #256B7F;
+    
+    /* Accent - Teal */
+    --accent: #16A085;
+    --accent-light: #1ABC9C;
+    
+    /* Functional Colors */
+    --success: #27AE60;
+    --warning: #F39C12;
+    --danger: #E74C3C;
+    
+    /* Backgrounds */
+    --bg: #F8F9FA;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #ECF0F1;
+    
+    /* Text */
+    --text: #2C3E50;
+    --text-secondary: #7F8C8D;
+    --text-light: #95A5A6;
+    --text-on-dark: #FFFFFF;
+    
+    /* Borders */
+    --border: #E0E0E0;
+    --border-light: #ECEFF1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════ */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-secondary);
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* TOP NAVIGATION - always visible */
+/* ═══════════════════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════════════════ */
+
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+    overflow: hidden;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--text-on-dark);
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 4px rgba(29, 88, 107, 0.15);
+}
+.header h1 { font-size: 1.6rem; margin-bottom: 0.2rem; text-align: center; color: var(--text-on-dark); }
+.header p { opacity: 0.85; font-size: 0.9rem; text-align: center; color: var(--text-on-dark); }
+
+/* TABS */
+.tabs {
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    overflow: hidden;
+    white-space: nowrap;
+}
+.tab-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: max-content;
+}
+.tab button {
+    display: block;
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    border: none;
+    background: white;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.25s;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    text-align: center;
+}
+.tab button:hover { background: #f0f7ff; color: var(--primary); }
+.tab button.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    background: #eef5ff;
+    font-weight: 600;
+}
+
+/* Tab badge */
+.tab-badge {
+    display: none;
+    font-size: 0.6rem;
+    background: var(--success);
+    color: var(--text-on-dark);
+    border-radius: 8px;
+    padding: 1px 5px;
+    margin-left: 4px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+.tab-badge.show { display: inline-block; }
+
+/* CONTENT PANES */
+.tab-content { display: none; width: 100%; height: calc(100vh - 150px); margin-top: 150px; }
+.tab-content.active { display: block; }
+.tab-content iframe { width: 100%; height: 100%; border: none; }
+
+/* HOME PAGE */
+/* ═══════════════════════════════════════════════════════
+   HOME PAGE
+   ═══════════════════════════════════════════════════════ */
+
+.home-content {
+    max-width: 1100px;
+    margin: 140px auto 0;
+    padding: 2rem 2rem 3rem;
+}
+.home-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.home-header h2 {
+    color: var(--primary);
+    font-size: 1.7rem;
+    margin-bottom: 0.4rem;
+}
+.home-header p { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* STATS ROW */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+.stat-card {
+    background: white;
+    padding: 1.2rem 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-top: 3px solid var(--primary);
+}
+.stat-card .number { font-size: 2rem; font-weight: 700; color: var(--primary); }
+.stat-card .label { color: var(--text-secondary); font-size: 0.78rem; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* GLOBAL PROGRESS BAR */
+.global-progress-wrap {
+    margin-top: 0.7rem;
+}
+.global-progress-steps {
+    display: flex;
+    gap: 3px;
+}
+.global-progress-step {
+    flex: 1;
+    height: 7px;
+    border-radius: 3px;
+    background: var(--bg-secondary);
+    transition: background 0.4s ease;
+}
+.global-progress-step.done { background: var(--success); }
+.global-progress-step.partial { background: var(--warning); }
+.global-progress-labels {
+    display: flex;
+    margin-top: 0.35rem;
+}
+.global-progress-labels span {
+    flex: 1;
+    font-size: 0.58rem;
+    color: var(--text-secondary);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* SECTION LABEL */
+.section-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    margin-top: 2rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* CARDS GRID */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1rem;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    cursor: pointer;
+    transition: all 0.25s;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    border-color: var(--primary);
+}
+.card-header {
+    padding: 0.6rem 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-on-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-header.study { background: var(--primary); }
+.card-header.mock  { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); }
+.card-header.hard  { background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); }
+
+/* Card badge */
+.card-badge {
+    display: none;
+    background: rgba(255,255,255,0.25);
+    color: var(--text-on-dark);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 8px;
+}
+.card-badge.show { display: inline-block; }
+
+.card-body { padding: 1rem; }
+.card-body h3 { font-size: 1rem; color: var(--text); margin-bottom: 0.3rem; }
+.card-body .card-meta { font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
+
+/* Card mini progress — 2 dots: content + quiz */
+.card-progress {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 0.75rem;
+}
+.card-progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background 0.3s ease;
+}
+.card-progress-dot.done { background: var(--success); }
+.card-progress-dot-label {
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+    margin-left: 2px;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.tag-green  { background: #E8F5E9; color: var(--success); }
+.tag-purple { background: #F3E5F5; color: #7B1FA2; }
+.tag-red    { background: #FFEBEE; color: var(--danger); }
+.tag-blue   { background: #E3F2FD; color: var(--primary); }
+
+.card-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 1rem 0.8rem;
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+/* EXAM INFO BOX */
+.info-box {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.info-box h4 { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.6rem; }
+.info-box ul { list-style: none; }
+.info-box li { font-size: 0.82rem; color: var(--text-secondary); padding: 0.25rem 0; }
+.info-box li strong { color: var(--text); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .header { padding: 1rem; }
+    .header h1 { font-size: 1.2rem; }
+    .tabs { top: 56px; }
+    .tab button { padding: 0.7rem 0.6rem; font-size: 0.75rem; }
+    .tab-content { height: calc(100vh - 115px); }
+    .home-content { padding: 1rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .cards-grid { grid-template-columns: 1fr; }
+    .info-box { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTION & MOCK EXAM STYLES
+   (Used by section1-5.html and mock_exam_a-d.html)
+   ═══════════════════════════════════════════════════════ */
+
+/* ============================================================
+   MARKETO CERTIFICATION STUDY GUIDE — Shared Stylesheet
+   Used by: section1-5.html, mock_exam_a-d.html
+   ============================================================ */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* RESET & VARIABLES */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    /* Primary - Teal Petróleo (sofisticado, profesional) */
+    --primary: #1D586B;           /* Teal oscuro - headers, estructura */
+    --primary-dark: #164555;      /* Teal más oscuro - hover */
+    --primary-light: #256B7F;     /* Teal claro - accents */
+    
+    /* Accent - Teal suave (frescura sin ser agresivo) */
+    --accent: #16A085;            /* Teal - CTAs, confirmaciones */
+    --accent-light: #1ABC9C;      /* Teal claro - highlights */
+    
+    /* Functional Colors */
+    --success: #27AE60;           /* Verde suave - quiz aprobado */
+    --warning: #F39C12;           /* Naranja suave - advertencias */
+    --danger: #E74C3C;            /* Rojo coral - errores */
+    
+    /* Backgrounds (tonos grises cálidos) */
+    --bg: #F8F9FA;                /* Gris muy claro - fondo principal */
+    --bg-secondary: #FFFFFF;      /* Blanco puro - tarjetas */
+    --bg-tertiary: #ECF0F1;       /* Gris claro - secciones alternas */
+    
+    /* Text (jerarquía clara) */
+    --text: #2C3E50;              /* Navy oscuro - texto principal */
+    --text-secondary: #7F8C8D;    /* Gris medio - texto secundario */
+    --text-light: #95A5A6;        /* Gris claro - hints, placeholders */
+    --text-on-dark: #FFFFFF;      /* Blanco - texto sobre fondos oscuros */
+    
+    /* Borders y separadores */
+    --border: #E0E0E0;            /* Gris muy suave */
+    --border-light: #ECEFF1;      /* Casi invisible */
+}
+
+/* BASE */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: var(--text-on-dark);
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 2px 4px rgba(29, 88, 107, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header h1 { 
+    font-size: 1.1rem; 
+    margin-bottom: 0.15rem; 
+    text-align: center; 
+    font-weight: 600;
+    color: var(--text-on-dark);
+}
+.header p { 
+    opacity: 0.9; 
+    text-align: center; 
+    font-size: 0.75rem;
+    margin: 0;
+    color: var(--text-on-dark);
+}
+
+/* LAYOUT */
+.container { max-width: 1000px; margin: 2rem auto; padding: 0 2rem; }
+.content {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+/* TYPOGRAPHY */
+h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary);
+}
+h3 { color: var(--text); font-size: 1.4rem; margin: 1.5rem 0 1rem; }
+h4 { color: var(--text); font-size: 1.1rem; margin: 1rem 0 0.5rem; font-weight: 600; }
+p { margin-bottom: 1rem; }
+ul, ol { margin-left: 2rem; margin-bottom: 1rem; }
+li { margin-bottom: 0.5rem; }
+
+/* ALERTS */
+.alert { padding: 1.2rem 1.5rem; border-radius: 6px; margin: 1.5rem 0; border-left: 4px solid; }
+.alert-info    { background: #E3F2FD; border-color: var(--primary); color: #0D47A1; }
+.alert-warning { background: #FFF9E6; border-color: var(--warning); color: #E65100; }
+.alert-danger  { background: #FFEBEE; border-color: var(--danger);  color: #C62828; }
+.alert-success { background: #E8F5E9; border-color: var(--success); color: #1B5E20; }
+
+/* CODE */
+code {
+    background: #f4f4f4;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    color: #c7254e;
+}
+pre {
+    background: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-left: 4px solid var(--primary);
+}
+
+/* LINKS */
+a { color: var(--primary); text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+
+/* TABLES */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: block;
+    overflow-x: auto;
+}
+th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--primary); color: white; font-weight: 600; }
+tr:hover { background: var(--bg-secondary); }
+
+/* ============================================================
+   QUIZ COMPONENTS
+   ============================================================ */
+
+.quiz-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 3rem;
+}
+
+/* Intro box (mock exams) */
+.intro {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+.intro h2 {
+    color: var(--primary);
+    font-size: 1.6rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--primary);
+}
+
+/* Questions */
+.question {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary);
+    transition: all 0.3s;
+}
+.question.correct   { border-left-color: var(--success); background: #E8F5E9; }
+.question.incorrect { border-left-color: var(--danger);  background: #FFEBEE; }
+
+.question-number { font-weight: bold; color: var(--primary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+.question-text   { font-weight: 600; font-size: 1.1rem; margin-bottom: 1.2rem; line-height: 1.6; }
+
+/* Options */
+.options { list-style: none; margin-left: 0; }
+.option {
+    padding: 1rem 1.2rem;
+    margin: 0.7rem 0;
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.option:hover         { border-color: var(--primary); background: #F0F7FF; transform: translateX(5px); }
+.option label         { cursor: pointer; display: flex; align-items: center; }
+.option input         { margin-right: 1rem; cursor: pointer; width: 18px; height: 18px; }
+.option.correct-answer { border-color: var(--success); background: #E8F5E9; font-weight: 600; }
+.option.wrong-answer   { border-color: var(--danger);  background: #FFEBEE; }
+
+/* Explanations */
+.explanation {
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    background: #E3F2FD;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary);
+    display: none;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+.explanation.show { display: block; animation: slideDown 0.3s ease; }
+.explanation strong { color: var(--primary); }
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons */
+.btn {
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0.5rem;
+}
+.btn-primary       { background: var(--accent); color: var(--text-on-dark); }
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(22, 160, 133, 0.25); }
+.btn-secondary       { background: var(--text-secondary); color: var(--text-on-dark); }
+.btn-secondary:hover { background: var(--text); }
+
+/* Quiz actions & score */
+.quiz-actions {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+.quiz-score {
+    background: linear-gradient(135deg, var(--success) 0%, #229954 100%);
+    color: var(--text-on-dark);
+    padding: 2rem;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 2rem 0;
+    display: none;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+}
+.quiz-score.show { display: block; animation: scaleIn 0.5s ease; }
+.quiz-score.fail { 
+    background: linear-gradient(135deg, var(--danger) 0%, #C0392B 100%); 
+    color: var(--text-on-dark);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2); 
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+    .header { padding: 1rem; }
+    .header h1 { font-size: 1.1rem; }
+    .header p { font-size: 0.8rem; }
+    .content, .quiz-section { padding: 1.5rem; }
+    .intro { padding: 1.5rem; }
+    .container { padding: 0 1rem; }
+    .question { padding: 1.5rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    pre { font-size: 0.85rem; padding: 1rem; }
+    code { word-break: break-word; }
+
+    /* Mobile tables */
+    table { border: 0; }
+    table thead { display: none; }
+    table tr {
+        display: block;
+        margin-bottom: 1.5rem;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        background: white;
+    }
+    table td {
+        display: block;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-bottom: 1px solid var(--bg-secondary);
+    }
+    table td:last-child { border-bottom: none; }
+    table td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--primary);
+    }
+}
+
+/* ============================================================
+   PROGRESS BAR — inside header, moves with header
+   ============================================================ */
+.progress-wrap {
+    margin-top: 0.5rem;
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.progress-label {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.85);
+    white-space: nowrap;
+}
+.progress-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: white;
+    border-radius: 2px;
+    transition: width 0.4s ease, background 0.4s ease;
+}
+.progress-count {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+    min-width: 32px;
+    text-align: right;
+}
+
+
